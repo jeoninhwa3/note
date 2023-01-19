@@ -4,13 +4,105 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/default.css">
     <title>Document</title>
 </head>
 <body>
     <div class="wrap">
-        <div class="navbar">
-            
+        <div class="navbar"></div>
+        <div class="container">
+            <section class="content">
+                <div class="db_prac step01">
+                    <h3 class="tit">이름을 입력하세요</h3>
+                    <div class="input_wrap">
+                        <input type="text" class="username" placeholder="" required value="">
+                    </div>
+                    <div class="btn_wrap">
+                        <button type="button" onclick="infoname()">입력</button>
+                    </div>
+                </div>
+                <div class="db_prac step02">
+                    <h3 class="tit">나이를 입력하세요</h3>
+                    <div class="input_wrap">
+                        <input type="text" class="userage" placeholder="" required value="">
+                    </div>
+                    <div class="btn_wrap">
+                        <button type="button" onclick="infoage()">입력</button>
+                    </div>
+                </div>
+                <div class="db_prac step03">
+                    <h3 class="tit">성별을 입력하세요</h3>
+                    <div class="input_wrap">
+                        <input type="text" class="usergender" placeholder="" required value="">
+                    </div>
+                    <div class="btn_wrap">
+                        <button type="button" onclick="infogender()">입력</button>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
+    
+    <script>
+        const step01 = document.querySelector('.step01');
+        const step02 = document.querySelector('.step02');
+        const step03 = document.querySelector('.step03');
+        var username = document.querySelector('.username');
+        var userage = document.querySelector('.userage');
+        var usergender = document.querySelector('.usergender');
+
+        function infoname() {
+            step01.style.display = "none"
+            step02.style.display = 'block'
+        }
+        function infoage() {
+            step02.style.display = "none"
+            step03.style.display = 'block'
+        }
+        function infogender() {
+            userInforCreate();
+        }
+        function userInforCreate(){
+            var _data = {
+				name : username.val(),
+                birth : userage.val(),
+                phone : usergender.val(),
+            }
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:3000/userinfo',
+                dataType: 'json',
+                async: false,
+                data: _data,
+                beforeSend: function(xhr) {},
+                complete: function(request,status) {}
+            }).done(function(data, textStatus, jqXHR) {
+                if (data) {
+                    console.log(data)
+
+                }
+            }).fail(function(jqXHR, textStatus) {
+                alert('textStatus: ' + textStatus);
+                return;
+            });
+            console.log(_data)
+        }
+        // function xxxuserinfo() {
+        //     var _data = {
+        //         name : username.val(),
+        //         age : userage.val(),
+        //         gender : usergender.val(),
+        //     }
+        //     $.ajax({
+        //         type: 'POST',
+        //         url : 'http://localhost:3000/userinfo',
+        //         dataType : 'json',
+        //         async: false,
+        //         data : _data,
+        //     })
+        // }
+        
+    </script>
+    <script src="./assets/js/lib/jquery-3.3.1.min.js"></script>
 </body>
 </html>

@@ -1,3 +1,32 @@
-.navbar {
-    color: aqua;
+.container {
+    padding: 16px;
+    .db_prac {
+        display: none;
+        height: calc(100vh - 32px);
+        &.step01 {
+            display: block;
+        }
+        .tit {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .input_wrap {
+            height: 30px;
+            border: 1px solid #999;
+            margin-bottom: 10px;
+            > input {
+                font-size: 20px;
+            }
+        }
+        .btn_wrap {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 10px;
+            background-color: #ddd;
+            margin-bottom: 10px;
+            button {
+                font-size: 20px;
+            }
+        }
+    }
 }
