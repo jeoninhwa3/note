@@ -42,67 +42,69 @@
             </section>
         </div>
     </div>
-    
+    <script src="./assets/js/lib/jquery-3.3.1.min.js"></script>
     <script>
-        const step01 = document.querySelector('.step01');
-        const step02 = document.querySelector('.step02');
-        const step03 = document.querySelector('.step03');
-        var username = document.querySelector('.username');
-        var userage = document.querySelector('.userage');
-        var usergender = document.querySelector('.usergender');
+        // 1. 제이쿼리로 선언시 제이쿼리 문법을 써야함
+        // 2. 제이쿼리 min 선언은 스크립트 최상단에
+        const step01 = $('.step01');
+        const step02 = $('.step02');
+        const step03 = $('.step03');
+        var username = $('.username');
+        var userage = $('.userage');
+        var usergender = $('.usergender');
 
         function infoname() {
-            step01.style.display = "none"
-            step02.style.display = 'block'
+            step01.hide();
+            step02.show();
         }
         function infoage() {
-            step02.style.display = "none"
-            step03.style.display = 'block'
+            step02.hide();
+            step03.show();
         }
         function infogender() {
-            userInforCreate();
+            xxxuserinfo();
         }
-        function userInforCreate(){
-            var _data = {
-				name : username.val(),
-                birth : userage.val(),
-                phone : usergender.val(),
-            }
-            $.ajax({
-                type: 'POST',
-                url: 'http://localhost:3000/userinfo',
-                dataType: 'json',
-                async: false,
-                data: _data,
-                beforeSend: function(xhr) {},
-                complete: function(request,status) {}
-            }).done(function(data, textStatus, jqXHR) {
-                if (data) {
-                    console.log(data)
-
-                }
-            }).fail(function(jqXHR, textStatus) {
-                alert('textStatus: ' + textStatus);
-                return;
-            });
-            console.log(_data)
-        }
-        // function xxxuserinfo() {
+        // function userInforCreate(){
         //     var _data = {
-        //         name : username.val(),
-        //         age : userage.val(),
-        //         gender : usergender.val(),
+		// 		name : username.val(),
+        //         birth : userage.val(),
+        //         phone : usergender.val(),
         //     }
         //     $.ajax({
         //         type: 'POST',
-        //         url : 'http://localhost:3000/userinfo',
-        //         dataType : 'json',
+        //         url: 'http://localhost:3000/userinfo',
+        //         dataType: 'json',
         //         async: false,
-        //         data : _data,
-        //     })
+        //         data: _data,
+        //         beforeSend: function(xhr) {},
+        //         complete: function(request,status) {}
+        //     }).done(function(data, textStatus, jqXHR) {
+        //         if (data) {
+        //             console.log(data)
+
+        //         }
+        //     }).fail(function(jqXHR, textStatus) {
+        //         alert('textStatus: ' + textStatus);
+        //         return;
+        //     });
+        //     console.log(_data)
         // }
+        function xxxuserinfo() {
+            var _data = {
+                name : username.val(),
+                age : userage.val(),
+                gender : usergender.val(),
+            }
+            $.ajax({
+                type: 'POST',
+                url : 'http://localhost:3000/userinfo',
+                dataType : 'json',
+                async: false,
+                data : _data,
+            })
+        }
         
     </script>
-    <script src="./assets/js/lib/jquery-3.3.1.min.js"></script>
+
 </body>
 </html>
