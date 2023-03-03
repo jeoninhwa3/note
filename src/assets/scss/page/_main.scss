@@ -1,31 +1,80 @@
-.container {
-    padding: 16px;
-    .db_prac {
-        display: none;
-        height: calc(100vh - 32px);
-        &.step01 {
-            display: block;
-        }
-        .tit {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-        .input_wrap {
-            height: 30px;
-            border: 1px solid #999;
-            margin-bottom: 10px;
-            > input {
-                font-size: 20px;
+//다크모드 샘플
+.thema_infor {
+    li {
+        background-color: #fff;
+        &.active {
+            &:nth-child(1){
+                color: #7092be;
+            }
+            &:nth-child(2){
+                background: #000;
+                color: #f5248c;
             }
         }
-        .btn_wrap {
-            display: inline-block;
-            padding: 5px 10px;
-            border-radius: 10px;
-            background-color: #ddd;
-            margin-bottom: 10px;
-            button {
+    }
+}
+.wrap {
+    width: 1280px;
+    min-height: 900px;
+    margin: 0 auto;
+    .container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 16px;
+        // json 데이터 연습
+        .db_prac {
+            display: none;
+            height: calc(100vh - 32px);
+            &.step01 {
+                display: block;
+            }
+            .tit {
                 font-size: 20px;
+                margin-bottom: 10px;
+            }
+            .input_wrap {
+                height: 30px;
+                border: 1px solid #999;
+                margin-bottom: 10px;
+                > input {
+                    font-size: 20px;
+                }
+            }
+            .btn_wrap {
+                display: inline-block;
+                padding: 5px 10px;
+                border-radius: 10px;
+                background-color: #ddd;
+                margin-bottom: 10px;
+                button {
+                    font-size: 20px;
+                }
+            }
+        }
+        // 팝업
+        .dim {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            background-color: rgba(0,0,0,.7);
+            transition: all .5s ease-in-out;
+        }
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 3rem;
+            height: 180px;
+            padding: 30px;
+            border-radius: 8px;
+            background-color: #fff;
+            text-align: center;
+            z-index: 101;
+            .pop_content {
+                font-size: 16px;
             }
         }
     }
