@@ -79,3 +79,33 @@
         }
     }
 }
+// 탭
+.tab_menu {
+    position: relative;
+}
+.tab_list::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.tab_list .tab_item {
+    float: left;
+    width: 33.3%;
+    text-align: center;
+}
+.tab_list .tab_item a {
+    display: block;
+    border-bottom: 2px solid #eee;
+}
+.tab_list .tab_item .cont {
+    position: absolute;
+    display: none;
+    width: 100%;
+    background-color: tomato;
+}
+.tab_list .tab_item.on a {
+    border-color: #000;
+}
+.tab_list .tab_item.on .cont {
+    display: block;
+}
