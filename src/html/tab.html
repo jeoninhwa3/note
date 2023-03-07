@@ -8,7 +8,8 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="tab_menu">
+    <!-- 인터넷에서 본 방법 -->
+    <!-- <div class="tab_menu">
         <ul class="tab_list">
             <li class="on tab_item">
                 <a href="" class="btn">btn1</a>
@@ -23,10 +24,62 @@
                 <div class="cont">cont3</div>
             </li>
         </ul>
+    </div> -->
+
+    <!-- 영웅전 -->
+    <div class="tab_wrap">
+        <div class="tab_head">
+            <ul class="tab_list">
+                <li class="on"><button type="button" class="btn_tab_item">tab1</button></li>
+                <li><button type="button" class="btn_tab_item">tab2</button></li>
+            </ul>
+        </div>
+
+        <div class="tab_cont">
+            키움 비중 상위
+        </div>
+        <div class="tab_cont" style="display:none;">
+            마감 상위
+        </div>
     </div>
+
     <script src="../assets/js/lib/jquery-3.3.1.min.js"></script>
     <script src="../assets/js/resize.js"></script>
     <script src="../assets/js/common.js"></script>
+    <script>
+        //영웅전
+        
+        
 
+        //인터넷에서 본 방법 js
+        // const tabList = document.querySelectorAll('.tab_menu .tab_list .tab_item');
+        // for(let i = 0; i < tabList.length; i++) {
+        //     tabList[i].querySelector('.btn').addEventListener('click', function(e) {
+        //         e.preventDefault();
+        //         for(let j = 0; j < tabList.length; j++) {
+        //             tabList[j].classList.remove('on');
+        //         };
+        //         this.parentNode().classList.add('on');
+        //     })
+        // } 
+
+        //익명 함수(호이스팅 작동X) 선언 및 변수 대입 + 반환문
+        // var hi = function( ) {
+        // var string = "Hello World!";
+        // return string;
+        // };
+
+        //익명 함수의 변수를 출력
+        // document.write( hi( ) );  // result : Hello World!
+
+        //익명 함수 선언 및 매개변수 사용
+        // var fusion = function( a, b ) {
+        // var z = a + b;
+        // return z;
+        // };
+
+        //익명 함수의 변수를 출력 및 인수 입력
+        // document.write( fusion( "Hello", "World!" ) ); // result : HelloWorld!
+    </script>
 </body>
 </html>
